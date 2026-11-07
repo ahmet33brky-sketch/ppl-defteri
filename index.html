@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>PPL Defteri</title>
+<meta name="description" content="5 günlük Push/Pull/Legs antrenman defteri: set ve kilo takibi, beslenme, kilo hedefi ve ilerleme.">
+<meta name="theme-color" content="#15181C">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="PPL Defteri">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="auth" hidden></div>
+<div class="wrap" id="app">
+  <header class="top">
+    <div>
+      <h1>PPL Defteri</h1>
+      <p id="subtitle">Push / Pull / Legs · haftada 5 gün</p>
+    </div>
+    <div class="status" id="status" data-s="idle">Yükleniyor…</div>
+  </header>
+  <section class="hero" id="hero" aria-label="Haftalık durum"></section>
+  <div id="banners"></div>
+  <nav class="tabs" id="tabs" role="tablist" aria-label="Bölümler"></nav>
+  <main id="main"></main>
+</div>
+<div id="timer" hidden>
+  <div class="tb" id="timerBar"></div>
+  <div class="in">
+    <div class="t" id="timerT">0:00</div>
+    <div class="lbl" id="timerL">Dinlenme</div>
+    <button type="button" id="timerPlus">+15 sn</button>
+    <button type="button" id="timerStop">Bitir</button>
+  </div>
+</div>
+<div id="toast" role="status" aria-live="polite" hidden></div>
+<div id="cele" hidden></div>
+<canvas id="confetti" hidden></canvas>
+<noscript><p style="padding:16px">PPL Defteri'ni kullanmak için JavaScript'i aç.</p></noscript>
+<script src="config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="app.js"></script>
+<script>
+if("serviceWorker" in navigator){addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}
+</script>
+</body>
+</html>
